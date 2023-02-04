@@ -1,3 +1,51 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["sonarjs", "prettier"],
+  "extends": [
+    "airbnb-base",
+    "next",
+    "next/core-web-vitals",
+    "plugin:sonarjs/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": [
+    "*.test.js",
+    "*.json",
+    ".sql",
+    ".swc",
+    "coverage",
+    "node_modules",
+    "__tests__"
+  ],
+  "rules": {
+    "complexity": ["error", 10],
+    "max-depth": ["error", 4],
+    "max-lines-per-function": ["error", 250],
+    "max-params": ["error", 4],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-param-reassign": "off",
+    "camelcase": "off",
+    "no-return-await": "off",
+    "no-unsafe-optional-chaining": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": "off",
+    "arrow-body-style": "off",
+    "import/order": "off",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off",
+    "consistent-return": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "."]
+      }
+    }
+  }
 }
